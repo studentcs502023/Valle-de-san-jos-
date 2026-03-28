@@ -62,3 +62,42 @@ exports.getProfile = async (req, res) => {
         res.status(500).json({ msg: 'Error al obtener el perfil.', error: err.message });
     }
 };
+
+// --- NUEVAS FUNCIONALIDADES CRUD ---
+
+// Obtener todos los usuarios (GET)
+exports.getAllUsers = async (req, res) => {
+    try {
+        const users = await User.find().select('-password');
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ msg: 'Error al obtener usuarios.', error: err.message });
+    }
+};
+
+// Actualizar usuario (PUT)
+exports.updateUser = async (req, res) => {
+    try {
+        const { username, email, role } = req.body;
+        const updatedUser = await User.findByIdAndUpdate(
+            req.params.id,
+            { username, email, role },
+            { new: true }
+        ).select('-password');
+        
+        res.json({ msg: 'Usuario actualizado', user: updatedUser });
+    } catch (err) {
+        res.status(500).json({ msg: 'Error al actualizar.', error: err.message });
+    }
+};
+
+// Eliminar usuario (DELETE)
+exports.deleteUser = async (req, res) => {
+    try {
+        await User.findByIdAndDelete(req.params.id);
+        res.json({ msg: 'Usuario eliminado correctamente' });
+    } catch (err) {
+        res.status(500).json({ msg: 'Error al eliminar.', error: err.message });
+    }
+};
+
