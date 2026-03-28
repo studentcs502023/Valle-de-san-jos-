@@ -2,14 +2,15 @@
 
 ## Historias de Usuario
 
-1. **Registro de Usuarios**
-   - **Como** nuevo usuario **quiero** registrarme en la plataforma con mi nombre, correo y contraseña **para** crear una cuenta personal.
+1. **Registro de Usuarios (Docentes y Administrativos) - #8**
+   - **Como** nuevo usuario **quiero** registrarme...
 
-2. **Login de Usuarios**
-   - **Como** usuario registrado **quiero** iniciar sesión con mi correo y contraseña **para** acceder al panel de control de la aplicación de forma segura.
+2. **Login de Usuarios (Autenticación) - #6**
+   - **Como** usuario registrado **quiero** iniciar sesión...
 
-3. **Visualización del Dashboard**
-   - **Como** usuario autenticado **quiero** ver un dashboard o perfil con mi información **para** confirmar que mi sesión está activa y ver mis datos.
+3. **Modelo de Datos y Roles - #7**
+   - **Como** sistema **quiero** diferenciar entre Docente y Administrativo...
+
 
 ## Estructura del Proyecto
 - `controllers/`: Lógica de negocio.
