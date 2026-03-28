@@ -17,6 +17,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'La contraseña es obligatoria'],
         minlength: 6
+    },
+    role: {
+        type: String,
+        enum: ['Docente', 'Administrativo'],
+        default: 'Docente'
     }
 }, { timestamps: true });
 
